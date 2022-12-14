@@ -64,7 +64,7 @@ contract Access is ERC1155, Ownable, ReentrancyGuard{
         _mint(msg.sender, tokenId, 1, "");
     }
 
-    function createToken(uint256 price, string memory _uri, uint256 supply) public returns (uint256) {
+    function createToken(uint256 price, string memory _uri, uint256 supply) public {
         // TODO do we charge developers a fee to create an access token?
         uint256 tokenId = nextTokenId;
         tokenPrices[nextTokenId] = price; // set the price
