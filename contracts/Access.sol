@@ -21,6 +21,8 @@ contract Access is ERC1155, Ownable, ReentrancyGuard{
     string public name;
     string public symbol;
 
+    event TokenCreated(uint256 tokenId);
+
      constructor(
         string memory _name,
         string memory _symbol
@@ -71,7 +73,8 @@ contract Access is ERC1155, Ownable, ReentrancyGuard{
         creatorAddresses[nextTokenId] = msg.sender; // set the payee address
         mintingActive[nextTokenId] = true; // turn minting on
         nextTokenId += 1; // increment the token id
-        return tokenId;
+        // emit the tokenId as a log
+        emit TokenCreated(tokenId);
     }
 
     /** @dev Return the URI for a token
