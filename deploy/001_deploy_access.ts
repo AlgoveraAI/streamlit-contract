@@ -1,6 +1,6 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 
-// npx hardhat deploy --network goerli --write true --tags access --export-all deployments.json
+// npx hardhat deploy --network mumbai --write true --tags access --export-all deployments.json
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

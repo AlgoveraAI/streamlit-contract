@@ -23,11 +23,12 @@ const chainIds = {
   hardhat: 31337,
   mainnet: 1,
   goerli: 5,
+  mumbai: 80001,
 };
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string =
-    "https://eth-" + network + ".alchemyapi.io/v2/" + alchemyKey;
+    "https://polygon-" + network + ".g.alchemy.com/v2/" + alchemyKey;
   return {
     accounts: { mnemonic },
     chainId: chainIds[network],
@@ -45,6 +46,9 @@ const config: HardhatUserConfig = {
     },
     goerli: {
       ...getChainConfig("goerli"),
+    },
+    mumbai: {
+      ...getChainConfig("mumbai"),
     },
   },
   gasReporter: {
