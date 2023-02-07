@@ -2,7 +2,7 @@
 
 ### Deploy
 ```
-npx hardhar deploy --network maticmum
+npx hardhat deploy --network maticmum
 ```
 
 ### Verify the deployment (optional)
@@ -11,7 +11,7 @@ npx hardhar deploy --network maticmum
 npx hardhat verify CONTRACT_ADDRESS --network maticmum --constructor-args arguments.js
 ```
 
-### Createa a token
+### Create a token
 ```
 npx hardhat run scripts/createToken.ts --network maticmum
 ```
