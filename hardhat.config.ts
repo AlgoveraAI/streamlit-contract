@@ -24,6 +24,7 @@ const chainIds = {
   mainnet: 1,
   goerli: 5,
   mumbai: 80001,
+  maticmum: 80001,
 };
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
@@ -50,6 +51,12 @@ const config: HardhatUserConfig = {
     mumbai: {
       ...getChainConfig("mumbai"),
     },
+
+    maticmum: {
+      accounts: { mnemonic },
+      chainId: 80001,
+      url: "https://polygon-" + "mumbai" + ".g.alchemy.com/v2/" + alchemyKey,
+    },
   },
   gasReporter: {
     enabled: true,
@@ -59,7 +66,7 @@ const config: HardhatUserConfig = {
     deployer: 0,
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.POLSYCAN_API_KEY,
   },
   solidity: {
     version: "0.8.9",

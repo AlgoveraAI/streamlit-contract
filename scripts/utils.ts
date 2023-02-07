@@ -19,8 +19,6 @@ export async function getContract(contractName: string, network: string) {
     // did you run hardhat deploy with the export-all flag?
     throw `No deployment found for ${contractName} on ${network}`;
 
-  console.log("using deployment", deployment.address);
-
   const address = deployment.address;
 
   // load the contract via ethers.js

@@ -17,7 +17,6 @@ contract Access is ERC1155, Ownable, ReentrancyGuard{
     mapping(uint256 => address) public creatorAddresses; 
 
     uint256 public nextTokenId = 0;
-
     string public name;
     string public symbol;
 
@@ -67,11 +66,11 @@ contract Access is ERC1155, Ownable, ReentrancyGuard{
     function createToken(uint256 price, string memory _uri, uint256 supply) public {
         // TODO do we charge developers a fee to create an access token?
         uint256 tokenId = nextTokenId;
-        tokenPrices[nextTokenId] = price; // set the price
-        tokenURIs[nextTokenId] = _uri; // set the uri (metadata)
-        maxSupply[nextTokenId] = supply; // set the max supply
-        creatorAddresses[nextTokenId] = msg.sender; // set the payee address
-        mintingActive[nextTokenId] = true; // turn minting on
+        tokenPrices[tokenId] = price; // set the price
+        tokenURIs[tokenId] = _uri; // set the uri (metadata)
+        maxSupply[tokenId] = supply; // set the max supply
+        creatorAddresses[tokenId] = msg.sender; // set the payee address
+        mintingActive[tokenId] = true; // turn minting on
         nextTokenId += 1; // increment the token id
         // emit the tokenId as a log
         emit TokenCreated(tokenId);

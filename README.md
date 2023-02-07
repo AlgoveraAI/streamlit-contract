@@ -1,13 +1,22 @@
-# Sample Hardhat Project
+## Getting started
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+### Deploy
+```
+npx hardhar deploy --network maticmum
+```
 
-Try running some of the following tasks:
+### Verify the deployment (optional)
+*This lets you view the contract on polyscan.com and read in values like tokenURIs*
+```
+npx hardhat verify CONTRACT_ADDRESS --network maticmum --constructor-args arguments.js
+```
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+### Createa a token
+```
+npx hardhat run scripts/createToken.ts --network maticmum
+```
+
+### Mint a token
+```
+npx hardhat run scripts/mint.ts --network maticmum
 ```
